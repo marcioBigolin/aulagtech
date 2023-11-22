@@ -7,4 +7,4 @@ dado = pd.read_csv("data.csv")
 st.write(dado)
 estatisticas_basicas = dado['aa_num'].describe()
 
-st.write(dado)
+st.write(estatisticas_basicas)
