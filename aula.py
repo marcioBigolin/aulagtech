@@ -11,7 +11,7 @@ senha = params.get('senha', ['SEM_DADOS'])[0]
 
 #criando conexão com o banco de dados
 conn = create_engine(f"postgresql://revisao_data:{senha}@revisao_data.postgresql.dbaas.com.br:5432/revisao_data")
-
+st.write(f"postgresql://revisao_data:{senha}@revisao_data.postgresql.dbaas.com.br:5432/revisao_data")
 
 #montando a tela 
 st.set_page_config(page_title="Aula de low code GtechEDU", layout="wide")
@@ -23,3 +23,4 @@ sql_query =  pd.read_sql_query (f"SELECT * FROM moodle_marcio2.fato_join;", con=
 
 df = pd.DataFrame(sql_query, columns = ['titulo', 'nome_completo', 'coh_frazier', 'coh_brunet', 'data_entrega'])
 
+st.dataframe(df)
