@@ -24,52 +24,7 @@ df = pd.DataFrame(sql_query, columns = ['titulo', 'nome_completo', 'coh_frazier'
 
 
 def gepeto():
-    from pandasai import PandasAI
-    from pandasai.llm.openai import OpenAI
-    import matplotlib.pyplot as plt
-    import os
-
-
-    if "openai_key" not in st.session_state:
-        with st.form("API key"):
-            key = st.text_input("OpenAI Key", value="", type="password")
-            if st.form_submit_button("Enviar"):
-                st.session_state.openai_key = key
-                st.session_state.prompt_history = []
-                st.success('API KEY Salva só alegria!') #Validar entrada vazia
-
-    #Para não precisar clicar 2x no botão
-    if "openai_key" in st.session_state:
-    
-        with st.form("Question"):
-            question = st.text_input("Question", value="", type="default")
-            submitted = st.form_submit_button("Gerar")
-            if submitted:
-                with st.spinner():
-                    llm = OpenAI(api_token=st.session_state.openai_key)
-                    pandas_ai = PandasAI(llm)
-                    x = pandas_ai.run(df, prompt=question)
-
-                    if os.path.isfile('temp_chart.png'):
-                        im = plt.imread('temp_chart.png')
-                        st.image(im)
-                        os.remove('temp_chart.png')
-
-                    if x is not None:
-                        st.write(x)
-
-                    st.session_state.prompt_history.append(question)
-
-    
-
-        st.subheader("Prompt history:")
-        st.write(st.session_state.prompt_history)
-
-        if "prompt_history" in st.session_state.prompt_history and len(st.session_state.prompt_history) > 0:
-            if st.button("Limpar"):
-                st.session_state.prompt_history = []
-                st.session_state.df = None
-
+   st.write("oi")
 
 tab1, tab2, tab3 = st.tabs(["Entendendo meus dados" , "ChatGPT", "Gerador de gráfico", ])
 
