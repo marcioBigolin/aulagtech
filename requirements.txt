@@ -1,6 +1,6 @@
+pandasai
 panda
 streamlit
-pandasai
 pygwalker
 SQLAlchemy 
 psycopg2-binary
