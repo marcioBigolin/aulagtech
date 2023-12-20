@@ -66,16 +66,14 @@ else:
 
     df = pd.DataFrame(sql_query, columns = ['titulo', 'nome_completo', 'coh_frazier', 'coh_brunet', 'data_entrega'])
 
-    tab1, tab2, tab3 = st.tabs(["Entendendo meus dados" , "ChatGPT", "Gerador de gráfico", ])
+    tab1, tab2, tab3 = st.tabs(["Entendendo meus dados", "Gerador de gráfico", "ChatGPT" ])
 
     with tab1:
         st.dataframe(df)
         st.write(df['coh_brunet'].describe())
 
-    with tab2:
-        gepeto()
 
-    with tab3: 
+    with tab2: 
         import pygwalker as pyg
         from pygwalker.api.streamlit import StreamlitRenderer, init_streamlit_comm
         # Establish communication between pygwalker and streamlit
@@ -90,3 +88,5 @@ else:
     
         # Render your data exploration interface. Developers can use it to build charts by drag and drop.
         renderer.render_explore()
+    with tab3:
+        gepeto()
