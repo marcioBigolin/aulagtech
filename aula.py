@@ -16,7 +16,7 @@ senha = params.get('senha', ['SEM_DADOS'])[0]
 st.write("Escolha uma das abas")
 
 def gepeto():
-    from pandasai import PandasAI
+    from pandasai import SmartDataFrame
     from pandasai.llm.openai import OpenAI
     import matplotlib.pyplot as plt
     import os
